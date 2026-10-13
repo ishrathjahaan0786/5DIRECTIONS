@@ -1,36 +1,41 @@
-import jwt from 'jsonwebtoken'
+import User from '../models/User.js'
 import { db } from '../data/db.js'
+import { getDbStatus } from '../config/db.js'
 
-const JWT_SECRET = process.env.JWT_SECRET || '5directions_super_secret_jwt_key_2026'
+export const authenticateSession = async (req, res, next) => {
+  // 1. Check server-managed session
+  if (req.session && req.session.user) {
+    req.user = req.session.user
+    return next()
+  }
 
-export const authenticateToken = (req, res, next) => {
+  // 2. Fallback check for authorization bearer header (for API tools/test scripts)
   const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-
-  if (!token) {
-    return res.status(401).json({
-      success: false,
-      message: 'Authentication token required'
-    })
-  }
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET)
-    const user = db.users.find(u => u.id === decoded.id)
-    if (!user) {
-      return res.status(403).json({ success: false, message: 'Invalid or expired session user' })
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    const token = authHeader.split(' ')[1]
+    // Check if token matches a known user ID or email
+    const localUser = db.users.find(u => u.id === token || u.email === token)
+    if (localUser) {
+      req.user = {
+        id: localUser.id,
+        email: localUser.email,
+        fullName: localUser.fullName,
+        companyName: localUser.companyName,
+        role: localUser.role,
+        country: localUser.country
+      }
+      return next()
     }
-    const { passwordHash: _, ...safeUser } = user
-    req.user = safeUser
-    next()
-  } catch (err) {
-    return res.status(403).json({
-      success: false,
-      message: 'Invalid or expired token',
-      error: err.message
-    })
   }
+
+  return res.status(401).json({
+    success: false,
+    message: 'Authentication required. Please sign in.'
+  })
 }
+
+// Backwards-compatible alias
+export const authenticateToken = authenticateSession
 
 export const requireRole = (allowedRole) => {
   return (req, res, next) => {
@@ -49,20 +54,8 @@ export const requireRole = (allowedRole) => {
 }
 
 export const optionalAuth = (req, res, next) => {
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-
-  if (token) {
-    try {
-      const decoded = jwt.verify(token, JWT_SECRET)
-      const user = db.users.find(u => u.id === decoded.id)
-      if (user) {
-        const { passwordHash: _, ...safeUser } = user
-        req.user = safeUser
-      }
-    } catch {
-      // Ignore invalid token on optional auth
-    }
+  if (req.session && req.session.user) {
+    req.user = req.session.user
   }
   next()
 }

@@ -1,0 +1,1080 @@
+{
+  "users": [
+    {
+      "id": "usr-comp-demo",
+      "email": "company.demo@5directions.demo",
+      "passwordHash": "$2b$10$QyCspr75sdFt8ip7zyIoou5FxYqstuFh6igeBpAMaRvpYe482FV9m",
+      "fullName": "Sarah Jenkins (Procurement Dir)",
+      "companyName": "AeroDynamics Global Inc.",
+      "role": "company",
+      "country": "United States",
+      "createdAt": "2026-10-13T19:34:18.874Z"
+    },
+    {
+      "id": "usr-supp-demo",
+      "email": "supplier.demo@5directions.demo",
+      "passwordHash": "$2b$10$QyCspr75sdFt8ip7zyIoou5FxYqstuFh6igeBpAMaRvpYe482FV9m",
+      "fullName": "Hans Becker (Head of Sales)",
+      "companyName": "Titan Works GmbH",
+      "role": "supplier",
+      "country": "Germany",
+      "createdAt": "2026-10-13T19:34:18.876Z"
+    }
+  ],
+  "materials": [
+    {
+      "id": 1,
+      "abbr": "Ti",
+      "name": "Titanium Ti-6Al-4V Grade 5",
+      "sku": "TIT-GR5-408",
+      "category": "Metals & Alloys",
+      "spec": "ASTM B265 / AMS 4911",
+      "form": "Hot-Rolled Billet / Sheet",
+      "stockQty": 8500,
+      "allocatedQty": 3200,
+      "availableQty": 5300,
+      "unit": "kg",
+      "unitPrice": 42,
+      "currency": "USD",
+      "leadTime": "48-72 hours",
+      "supplierId": 1,
+      "supplierName": "Titan Works GmbH",
+      "certifications": [
+        "AS9100D",
+        "ISO 9001",
+        "Nadcap"
+      ],
+      "complianceStatus": "Active"
+    },
+    {
+      "id": 2,
+      "abbr": "CF",
+      "name": "Carbon Fiber Prepreg Toray T800S",
+      "sku": "CF-T800-112",
+      "category": "Composites",
+      "spec": "Toray BMS 8-276 Rev L",
+      "form": "Unidirectional Tape 300gsm",
+      "stockQty": 4200,
+      "allocatedQty": 1800,
+      "availableQty": 2400,
+      "unit": "sq.m",
+      "unitPrice": 115,
+      "currency": "USD",
+      "leadTime": "3-5 days",
+      "supplierId": 2,
+      "supplierName": "Nippon Composite Tech",
+      "certifications": [
+        "ISO 9001",
+        "EN 9100",
+        "Boeing D1-4426"
+      ],
+      "complianceStatus": "Active"
+    },
+    {
+      "id": 3,
+      "abbr": "In",
+      "name": "Inconel 718 Nickel Superalloy Bar",
+      "sku": "INC-718-921",
+      "category": "Superalloys",
+      "spec": "AMS 5662 / ASTM B637",
+      "form": "Cold-Drawn Round Bar Ø45mm",
+      "stockQty": 1850,
+      "allocatedQty": 600,
+      "availableQty": 1250,
+      "unit": "kg",
+      "unitPrice": 78.5,
+      "currency": "USD",
+      "leadTime": "5-7 days",
+      "supplierId": 1,
+      "supplierName": "Titan Works GmbH",
+      "certifications": [
+        "AS9100D",
+        "ISO 9001",
+        "Nadcap Heat Treat"
+      ],
+      "complianceStatus": "Active"
+    },
+    {
+      "id": 4,
+      "abbr": "Al",
+      "name": "Aerospace Aluminium 7075-T651 Plate",
+      "sku": "AL-7075-303",
+      "category": "Metals & Alloys",
+      "spec": "AMS 4045 / ASTM B209",
+      "form": "Stretched Plate 25mm thickness",
+      "stockQty": 14200,
+      "allocatedQty": 4000,
+      "availableQty": 10200,
+      "unit": "kg",
+      "unitPrice": 16.5,
+      "currency": "USD",
+      "leadTime": "24-48 hours",
+      "supplierId": 3,
+      "supplierName": "AlloyCraft Nordic AB",
+      "certifications": [
+        "ISO 9001",
+        "AS9100D",
+        "Airbus Approved"
+      ],
+      "complianceStatus": "Active"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "Titan Works GmbH",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "city": "Stuttgart",
+      "rating": 4.9,
+      "reliability": 99.2,
+      "leadTimeHours": 48,
+      "certifications": [
+        "AS9100D",
+        "ISO 9001",
+        "Nadcap"
+      ],
+      "materialsCount": 48,
+      "disruptionRisk": "Low",
+      "verified": true,
+      "contactEmail": "orders@titanworks.de",
+      "allocationShare": 45
+    },
+    {
+      "id": 2,
+      "name": "Nippon Composite Tech",
+      "country": "Japan",
+      "flag": "🇯🇵",
+      "city": "Nagoya",
+      "rating": 4.8,
+      "reliability": 98.7,
+      "leadTimeHours": 72,
+      "certifications": [
+        "ISO 9001",
+        "EN 9100",
+        "Boeing D1-4426"
+      ],
+      "materialsCount": 32,
+      "disruptionRisk": "Low",
+      "verified": true,
+      "contactEmail": "global@nipponcomposite.jp",
+      "allocationShare": 35
+    },
+    {
+      "id": 3,
+      "name": "AlloyCraft Nordic AB",
+      "country": "Sweden",
+      "flag": "🇸🇪",
+      "city": "Gothenburg",
+      "rating": 4.7,
+      "reliability": 96.5,
+      "leadTimeHours": 96,
+      "certifications": [
+        "ISO 9001",
+        "AS9100D"
+      ],
+      "materialsCount": 29,
+      "disruptionRisk": "Moderate",
+      "verified": true,
+      "contactEmail": "sales@alloycraft.se",
+      "allocationShare": 20
+    }
+  ],
+  "orders": [
+    {
+      "id": "PO-SIM-06903",
+      "poNumber": "PO-SIM-06903",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Apex Forge & Precision Alloys",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 1000,
+      "unit": "kg",
+      "unitPrice": 46,
+      "value": 46000,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:33:20.690Z"
+    },
+    {
+      "id": "PO-SIM-06882",
+      "poNumber": "PO-SIM-06882",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Nordic Alloy Works AB",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 2500,
+      "unit": "kg",
+      "unitPrice": 45,
+      "value": 112500,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:33:20.688Z"
+    },
+    {
+      "id": "PO-SIM-06871",
+      "poNumber": "PO-SIM-06871",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Vanguard Metals International",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 4500,
+      "unit": "kg",
+      "unitPrice": 44.5,
+      "value": 200250,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:33:20.687Z"
+    },
+    {
+      "id": "PO-SIM-06553",
+      "poNumber": "PO-SIM-06553",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Apex Forge & Precision Alloys",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 1000,
+      "unit": "kg",
+      "unitPrice": 46,
+      "value": 46000,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:33:20.655Z"
+    },
+    {
+      "id": "PO-SIM-06552",
+      "poNumber": "PO-SIM-06552",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Nordic Alloy Works AB",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 2500,
+      "unit": "kg",
+      "unitPrice": 45,
+      "value": 112500,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:33:20.655Z"
+    },
+    {
+      "id": "PO-SIM-06541",
+      "poNumber": "PO-SIM-06541",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Vanguard Metals International",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 4500,
+      "unit": "kg",
+      "unitPrice": 44.5,
+      "value": 200250,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:33:20.654Z"
+    },
+    {
+      "id": "PO-SIM-54523",
+      "poNumber": "PO-SIM-54523",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Apex Forge & Precision Alloys",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 1000,
+      "unit": "kg",
+      "unitPrice": 46,
+      "value": 46000,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:32:05.452Z"
+    },
+    {
+      "id": "PO-SIM-54492",
+      "poNumber": "PO-SIM-54492",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Nordic Alloy Works AB",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 2500,
+      "unit": "kg",
+      "unitPrice": 45,
+      "value": 112500,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:32:05.450Z"
+    },
+    {
+      "id": "PO-SIM-54461",
+      "poNumber": "PO-SIM-54461",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Vanguard Metals International",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 4500,
+      "unit": "kg",
+      "unitPrice": 44.5,
+      "value": 200250,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:32:05.446Z"
+    },
+    {
+      "id": "PO-SIM-54153",
+      "poNumber": "PO-SIM-54153",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Apex Forge & Precision Alloys",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 1000,
+      "unit": "kg",
+      "unitPrice": 46,
+      "value": 46000,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:32:05.415Z"
+    },
+    {
+      "id": "PO-SIM-54142",
+      "poNumber": "PO-SIM-54142",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Nordic Alloy Works AB",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 2500,
+      "unit": "kg",
+      "unitPrice": 45,
+      "value": 112500,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:32:05.414Z"
+    },
+    {
+      "id": "PO-SIM-54121",
+      "poNumber": "PO-SIM-54121",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Vanguard Metals International",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 4500,
+      "unit": "kg",
+      "unitPrice": 44.5,
+      "value": 200250,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:32:05.412Z"
+    },
+    {
+      "id": "PO-SIM-84183",
+      "poNumber": "PO-SIM-84183",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Apex Forge & Precision Alloys",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 1000,
+      "unit": "kg",
+      "unitPrice": 46,
+      "value": 46000,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:30:18.418Z"
+    },
+    {
+      "id": "PO-SIM-84172",
+      "poNumber": "PO-SIM-84172",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Nordic Alloy Works AB",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 2500,
+      "unit": "kg",
+      "unitPrice": 45,
+      "value": 112500,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:30:18.417Z"
+    },
+    {
+      "id": "PO-SIM-84151",
+      "poNumber": "PO-SIM-84151",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Vanguard Metals International",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 4500,
+      "unit": "kg",
+      "unitPrice": 44.5,
+      "value": 200250,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:30:18.415Z"
+    },
+    {
+      "id": "PO-SIM-83853",
+      "poNumber": "PO-SIM-83853",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Apex Forge & Precision Alloys",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 1000,
+      "unit": "kg",
+      "unitPrice": 46,
+      "value": 46000,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:30:18.386Z"
+    },
+    {
+      "id": "PO-SIM-83842",
+      "poNumber": "PO-SIM-83842",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Nordic Alloy Works AB",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 2500,
+      "unit": "kg",
+      "unitPrice": 45,
+      "value": 112500,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:30:18.384Z"
+    },
+    {
+      "id": "PO-SIM-83821",
+      "poNumber": "PO-SIM-83821",
+      "buyer": "AeroDynamics Global Corp",
+      "supplierName": "Vanguard Metals International",
+      "material": "Titanium Ti-6Al-4V Grade 5",
+      "qty": 4500,
+      "unit": "kg",
+      "unitPrice": 44.5,
+      "value": 200250,
+      "status": "Confirmed",
+      "createdAt": "2026-10-13T19:30:18.382Z"
+    }
+  ],
+  "disruptions": [],
+  "recoveryPlans": [
+    {
+      "_id": "plan-1791919720951",
+      "id": "plan-1791919720951",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "totalEstimatedCost": 360000,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:28:40.951Z"
+    },
+    {
+      "_id": "plan-1791919818377",
+      "id": "plan-1791919818377",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 358750,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:30:18.377Z"
+    },
+    {
+      "_id": "plan-1791919818379",
+      "id": "plan-1791919818379",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 358750,
+      "uncoveredQuantity": 0,
+      "status": "Executed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:30:18.379Z",
+      "executedOrders": [
+        "PO-SIM-83821",
+        "PO-SIM-83842",
+        "PO-SIM-83853"
+      ],
+      "approvedAt": "2026-10-13T19:30:18.387Z"
+    },
+    {
+      "_id": "plan-1791919818412",
+      "id": "plan-1791919818412",
+      "companyName": "AeroDynamics Global Corp",
+      "originalOrderNumber": "PO-2026-0100",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "budget": 450000,
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 442750,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "reasoning": "Optimal multi-supplier recovery formulated: Reallocated 8,000 kg across 3 certified suppliers (Vanguard Metals International and Nordic Alloy Works AB and Apex Forge & Precision Alloys). All candidate allocations strictly adhere to individual stock limits, verified AS9100D/ISO standards, and the 14-day delivery SLA.",
+      "risks": [
+        "Multi-sourcing across 3 distinct suppliers increases logistics coordination complexity."
+      ],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:30:18.412Z"
+    },
+    {
+      "_id": "plan-1791919818413",
+      "id": "plan-1791919818413",
+      "companyName": "AeroDynamics Global Corp",
+      "originalOrderNumber": "PO-2026-0100",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "budget": null,
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 442750,
+      "uncoveredQuantity": 0,
+      "status": "Executed",
+      "reasoning": "Optimal multi-supplier recovery formulated: Reallocated 8,000 kg across 3 certified suppliers (Vanguard Metals International and Nordic Alloy Works AB and Apex Forge & Precision Alloys). All candidate allocations strictly adhere to individual stock limits, verified AS9100D/ISO standards, and the 14-day delivery SLA.",
+      "risks": [
+        "Multi-sourcing across 3 distinct suppliers increases logistics coordination complexity."
+      ],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:30:18.413Z",
+      "executedOrders": [
+        "PO-SIM-84151",
+        "PO-SIM-84172",
+        "PO-SIM-84183"
+      ],
+      "approvedAt": "2026-10-13T19:30:18.418Z"
+    },
+    {
+      "_id": "plan-1791919925407",
+      "id": "plan-1791919925407",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 358750,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:32:05.407Z"
+    },
+    {
+      "_id": "plan-1791919925410",
+      "id": "plan-1791919925410",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 358750,
+      "uncoveredQuantity": 0,
+      "status": "Executed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:32:05.410Z",
+      "executedOrders": [
+        "PO-SIM-54121",
+        "PO-SIM-54142",
+        "PO-SIM-54153"
+      ],
+      "approvedAt": "2026-10-13T19:32:05.416Z"
+    },
+    {
+      "_id": "plan-1791919925442",
+      "id": "plan-1791919925442",
+      "companyName": "AeroDynamics Global Corp",
+      "originalOrderNumber": "PO-2026-0100",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "budget": 450000,
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 442750,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "reasoning": "Optimal multi-supplier recovery formulated: Reallocated 8,000 kg across 3 certified suppliers (Vanguard Metals International and Nordic Alloy Works AB and Apex Forge & Precision Alloys). All candidate allocations strictly adhere to individual stock limits, verified AS9100D/ISO standards, and the 14-day delivery SLA.",
+      "risks": [
+        "Multi-sourcing across 3 distinct suppliers increases logistics coordination complexity."
+      ],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:32:05.442Z"
+    },
+    {
+      "_id": "plan-1791919925444",
+      "id": "plan-1791919925444",
+      "companyName": "AeroDynamics Global Corp",
+      "originalOrderNumber": "PO-2026-0100",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "budget": null,
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 442750,
+      "uncoveredQuantity": 0,
+      "status": "Executed",
+      "reasoning": "Optimal multi-supplier recovery formulated: Reallocated 8,000 kg across 3 certified suppliers (Vanguard Metals International and Nordic Alloy Works AB and Apex Forge & Precision Alloys). All candidate allocations strictly adhere to individual stock limits, verified AS9100D/ISO standards, and the 14-day delivery SLA.",
+      "risks": [
+        "Multi-sourcing across 3 distinct suppliers increases logistics coordination complexity."
+      ],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:32:05.444Z",
+      "executedOrders": [
+        "PO-SIM-54461",
+        "PO-SIM-54492",
+        "PO-SIM-54523"
+      ],
+      "approvedAt": "2026-10-13T19:32:05.453Z"
+    },
+    {
+      "_id": "plan-1791920000649",
+      "id": "plan-1791920000649",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 358750,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:33:20.649Z"
+    },
+    {
+      "_id": "plan-1791920000652",
+      "id": "plan-1791920000652",
+      "companyName": "AeroDynamics Global Corp",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 358750,
+      "uncoveredQuantity": 0,
+      "status": "Executed",
+      "risks": [],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:33:20.652Z",
+      "executedOrders": [
+        "PO-SIM-06541",
+        "PO-SIM-06552",
+        "PO-SIM-06553"
+      ],
+      "approvedAt": "2026-10-13T19:33:20.656Z"
+    },
+    {
+      "_id": "plan-1791920000683",
+      "id": "plan-1791920000683",
+      "companyName": "AeroDynamics Global Corp",
+      "originalOrderNumber": "PO-2026-0100",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "budget": 450000,
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 442750,
+      "uncoveredQuantity": 0,
+      "status": "Proposed",
+      "reasoning": "Optimal multi-supplier recovery formulated: Reallocated 8,000 kg across 3 certified suppliers (Vanguard Metals International and Nordic Alloy Works AB and Apex Forge & Precision Alloys). All candidate allocations strictly adhere to individual stock limits, verified AS9100D/ISO standards, and the 14-day delivery SLA.",
+      "risks": [
+        "Multi-sourcing across 3 distinct suppliers increases logistics coordination complexity."
+      ],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:33:20.683Z"
+    },
+    {
+      "_id": "plan-1791920000685",
+      "id": "plan-1791920000685",
+      "companyName": "AeroDynamics Global Corp",
+      "originalOrderNumber": "PO-2026-0100",
+      "materialName": "Titanium Ti-6Al-4V Grade 5",
+      "requiredQuantity": 10000,
+      "shortageQuantity": 8000,
+      "unit": "kg",
+      "deliveryDeadline": "14 days",
+      "budget": null,
+      "proposedAllocations": [
+        {
+          "supplierId": "sup-alt-1",
+          "supplierName": "Vanguard Metals International",
+          "quantity": 4500,
+          "unitPrice": 44.5,
+          "totalPrice": 200250,
+          "leadTimeDays": 7,
+          "certVerified": true,
+          "stockAvailable": 4500
+        },
+        {
+          "supplierId": "sup-alt-3",
+          "supplierName": "Nordic Alloy Works AB",
+          "quantity": 2500,
+          "unitPrice": 45,
+          "totalPrice": 112500,
+          "leadTimeDays": 6,
+          "certVerified": true,
+          "stockAvailable": 2500
+        },
+        {
+          "supplierId": "sup-alt-2",
+          "supplierName": "Apex Forge & Precision Alloys",
+          "quantity": 1000,
+          "unitPrice": 46,
+          "totalPrice": 46000,
+          "leadTimeDays": 10,
+          "certVerified": true,
+          "stockAvailable": 4000
+        }
+      ],
+      "totalEstimatedCost": 442750,
+      "uncoveredQuantity": 0,
+      "status": "Executed",
+      "reasoning": "Optimal multi-supplier recovery formulated: Reallocated 8,000 kg across 3 certified suppliers (Vanguard Metals International and Nordic Alloy Works AB and Apex Forge & Precision Alloys). All candidate allocations strictly adhere to individual stock limits, verified AS9100D/ISO standards, and the 14-day delivery SLA.",
+      "risks": [
+        "Multi-sourcing across 3 distinct suppliers increases logistics coordination complexity."
+      ],
+      "isSimulated": true,
+      "createdAt": "2026-10-13T19:33:20.685Z",
+      "executedOrders": [
+        "PO-SIM-06871",
+        "PO-SIM-06882",
+        "PO-SIM-06903"
+      ],
+      "approvedAt": "2026-10-13T19:33:20.690Z"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { supabase, isSupabaseConfigured } from '../lib/supabase'
+import api from '../lib/api'
 
 const AuthContext = createContext(null)
 
@@ -7,59 +7,45 @@ export function AuthProvider({ children }) {
   const [user, setUser]       = useState(null)
   const [role, setRole]       = useState(null) // 'company' | 'supplier'
   const [loading, setLoading] = useState(true)
-  const isDemoMode = !isSupabaseConfigured
 
+  // Verify and restore session on page mount
   useEffect(() => {
     let mounted = true
 
-    // Get initial session safely
-    supabase.auth.getSession().then(({ data }) => {
-      if (!mounted) return
-      const session = data?.session
-      if (session?.user) {
-        setUser(session.user)
-        setRole(session.user.user_metadata?.role || null)
-      }
-      setLoading(false)
-    }).catch((err) => {
-      console.warn('[5Directions Auth] getSession error:', err)
-      if (mounted) setLoading(false)
-    })
-
-    // Listen for auth state changes safely
-    let subscription = null
-    try {
-      const res = supabase.auth.onAuthStateChange((_event, session) => {
-        if (!mounted) return
-        if (session?.user) {
-          setUser(session.user)
-          setRole(session.user.user_metadata?.role || null)
-        } else {
+    async function checkSession() {
+      try {
+        const res = await api.auth.getMe()
+        if (mounted && res?.success && res.user) {
+          setUser(res.user)
+          setRole(res.user.role)
+        }
+      } catch (err) {
+        // No active session or unauthenticated
+        if (mounted) {
           setUser(null)
           setRole(null)
         }
-        setLoading(false)
-      })
-      subscription = res?.data?.subscription
-    } catch (err) {
-      console.warn('[5Directions Auth] onAuthStateChange error:', err)
-      if (mounted) setLoading(false)
+      } finally {
+        if (mounted) setLoading(false)
+      }
     }
+
+    checkSession()
 
     return () => {
       mounted = false
-      if (subscription?.unsubscribe) subscription.unsubscribe()
     }
   }, [])
 
   const signIn = async (email, password) => {
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-      if (data?.user) {
-        setUser(data.user)
-        setRole(data.user.user_metadata?.role || null)
+      const res = await api.auth.login(email, password)
+      if (res?.success && res.user) {
+        setUser(res.user)
+        setRole(res.user.role)
+        return { data: { user: res.user }, error: null }
       }
-      return { data, error }
+      return { data: null, error: new Error(res?.message || 'Login failed') }
     } catch (err) {
       return { data: null, error: err }
     }
@@ -67,49 +53,19 @@ export function AuthProvider({ children }) {
 
   const signUp = async (email, password, fullName, company, selectedRole) => {
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const res = await api.auth.register({
         email,
         password,
-        options: {
-          data: {
-            full_name: fullName,
-            company_name: company,
-            role: selectedRole,
-          },
-        },
+        fullName,
+        companyName: company,
+        role: selectedRole
       })
-      if (data?.user) {
-        setUser(data.user)
-        setRole(selectedRole || data.user.user_metadata?.role || null)
+      if (res?.success && res.user) {
+        setUser(res.user)
+        setRole(res.user.role)
+        return { data: { user: res.user }, error: null }
       }
-      return { data, error }
-    } catch (err) {
-      return { data: null, error: err }
-    }
-  }
-
-  const loginAsDemo = (demoRole = 'company') => {
-    const mockUser = {
-      id: `demo-${demoRole}-${Date.now()}`,
-      email: `${demoRole}@5directions.demo`,
-      user_metadata: {
-        full_name: demoRole === 'company' ? 'Sarah Jenkins (Procurement Dir)' : 'Hans Becker (Sales Head)',
-        company_name: demoRole === 'company' ? 'AeroDynamics Global Inc.' : 'Titan Works GmbH',
-        role: demoRole
-      }
-    }
-    localStorage.setItem('5directions_demo_user', JSON.stringify(mockUser))
-    setUser(mockUser)
-    setRole(demoRole)
-    return mockUser
-  }
-
-  const resetPassword = async (email) => {
-    try {
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      })
-      return { data, error }
+      return { data: null, error: new Error(res?.message || 'Registration failed') }
     } catch (err) {
       return { data: null, error: err }
     }
@@ -117,13 +73,13 @@ export function AuthProvider({ children }) {
 
   const signOut = async () => {
     try {
-      await supabase.auth.signOut()
+      await api.auth.logout()
     } catch (err) {
-      console.warn('Sign out error:', err)
+      console.warn('Sign out warning:', err.message)
+    } finally {
+      setUser(null)
+      setRole(null)
     }
-    localStorage.removeItem('5directions_demo_user')
-    setUser(null)
-    setRole(null)
   }
 
   return (
@@ -131,11 +87,8 @@ export function AuthProvider({ children }) {
       user,
       role,
       loading,
-      isDemoMode,
       signIn,
       signUp,
-      loginAsDemo,
-      resetPassword,
       signOut
     }}>
       {children}

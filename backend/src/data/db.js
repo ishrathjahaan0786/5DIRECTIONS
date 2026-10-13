@@ -221,7 +221,14 @@ function loadDb() {
       return INITIAL_DATA
     }
     const content = fs.readFileSync(DB_FILE, 'utf-8')
-    return JSON.parse(content)
+    const parsed = JSON.parse(content)
+    if (!parsed.materials || parsed.materials.length === 0) {
+      parsed.materials = INITIAL_DATA.materials
+    }
+    if (!parsed.suppliers || parsed.suppliers.length === 0) {
+      parsed.suppliers = INITIAL_DATA.suppliers
+    }
+    return parsed
   } catch (err) {
     console.warn('DB read error, using memory fallback:', err)
     return INITIAL_DATA

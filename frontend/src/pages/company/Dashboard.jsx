@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CompanyHeader } from '../../components/layout/Header'
+import AiResilienceCenter from '../../components/company/AiResilienceCenter'
 
 /* ── Mock data ── */
 const ACTIVE_SUPPLIERS = [
@@ -58,16 +59,21 @@ export default function CompanyDashboard() {
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-bold text-deep-navy text-sm">Supply Disruption Detected</span>
-                <span className="badge-red">High Priority</span>
+                <span className="font-bold text-deep-navy text-sm">Active Supply Disruption</span>
+                <span className="badge-red">Urgent Action Required</span>
               </div>
-              <p className="text-sm text-text-muted">{a.supplier} — {a.issue} • ETA Impact: {a.eta}</p>
+              <p className="text-sm text-text-muted">{a.supplier} — {a.issue} • ETA Impact: {a.eta}. The AI Resilience Agent can calculate alternative allocations and resolve this disruption.</p>
             </div>
-            <button className="btn-primary text-xs py-2 px-3 gap-1">
-              <span className="material-symbols-outlined text-sm">bolt</span>{a.action}
-            </button>
+            <a href="#ai-resilience-center" className="btn-primary text-xs py-2 px-3 gap-1">
+              <span className="material-symbols-outlined text-sm">psychology</span>Launch AI Agent
+            </a>
           </div>
         ))}
+
+        {/* ── Agentic AI Command Center ── */}
+        <div id="ai-resilience-center">
+          <AiResilienceCenter />
+        </div>
 
         {/* ── KPI Cards ── */}
         <section>

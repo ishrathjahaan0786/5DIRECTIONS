@@ -1,12 +1,21 @@
 import { Router } from 'express'
-import { login, register, getMe, updateProfile } from '../controllers/authController.js'
-import { authenticateToken } from '../middleware/authMiddleware.js'
+import {
+  login,
+  register,
+  logout,
+  getMe,
+  forgotPassword,
+  resetPassword
+} from '../controllers/authController.js'
+import { authenticateSession } from '../middleware/authMiddleware.js'
 
 const router = Router()
 
 router.post('/login', login)
 router.post('/register', register)
-router.get('/me', authenticateToken, getMe)
-router.put('/profile', authenticateToken, updateProfile)
+router.post('/logout', logout)
+router.get('/me', authenticateSession, getMe)
+router.post('/forgot-password', forgotPassword)
+router.post('/reset-password', resetPassword)
 
 export default router

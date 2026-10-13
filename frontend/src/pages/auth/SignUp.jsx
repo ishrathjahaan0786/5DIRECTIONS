@@ -17,20 +17,19 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (password.length < 8) { setError('Password must be at least 8 characters.'); return }
-    setError(''); setLoading(true)
-    const { error: err } = await signUp(email, password, fullName, company, role)
+    if (password.length < 6) { setError('Password must be at least 6 characters.'); return }
+    setError('')
+    setLoading(true)
+    const { data, error: err } = await signUp(email, password, fullName, company, role)
     setLoading(false)
-    if (err) { setError(err.message); return }
+    if (err) { setError(err.message || 'Registration failed'); return }
 
-    if (isDemoMode) {
-      // In demo mode, provide instant access to the selected role dashboard
-      if (role === 'supplier') navigate('/supplier/dashboard')
-      else navigate('/company/dashboard')
-      return
+    // Session is saved automatically via backend HttpOnly cookie; navigate to appropriate dashboard
+    if (role === 'supplier') {
+      navigate('/supplier/dashboard')
+    } else {
+      navigate('/company/dashboard')
     }
-
-    setSuccess(true)
   }
 
   if (success) {
