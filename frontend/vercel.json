@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://five-directions-backend.onrender.com/api/:path*"
+      "destination": "https://fivedirections.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
