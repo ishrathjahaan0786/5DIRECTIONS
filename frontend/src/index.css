@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #FFFCF7;
+    color: #003049;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #FDF0D5; }
+  ::-webkit-scrollbar-thumb { background: #669BBC; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #003049; }
+
+  /* Material Symbols font */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+  }
+}
+
+@layer components {
+  /* CTA Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-crimson-red text-pure-white font-semibold text-sm shadow-cta hover:-translate-y-0.5 hover:shadow-lg hover:bg-deep-burgundy transition-all duration-200 active:scale-95;
+  }
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-warm-cream text-deep-navy font-semibold text-sm hover:bg-border-cream shadow-card transition-all duration-200 active:scale-95;
+  }
+  /* Ghost Button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-deep-navy/70 font-semibold text-sm hover:text-deep-navy hover:bg-warm-cream/60 transition-all duration-200;
+  }
+  /* Card */
+  .card {
+    @apply bg-pure-white rounded-2xl shadow-card p-6;
+  }
+  /* Input */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl bg-pure-white border border-border-neutral text-deep-navy placeholder:text-text-muted text-sm focus:outline-none focus:ring-2 focus:ring-ocean-blue/50 focus:border-ocean-blue transition-all;
+  }
+  /* Nav link */
+  .nav-link {
+    @apply px-3.5 py-2 rounded-xl font-semibold text-sm text-deep-navy/70 hover:text-deep-navy hover:bg-warm-cream/50 transition-all;
+  }
+  .nav-link-active {
+    @apply px-3.5 py-2 rounded-xl font-semibold text-sm bg-warm-cream text-deep-navy shadow-sm;
+  }
+  /* Badge */
+  .badge-ocean {
+    @apply px-2.5 py-0.5 rounded-full bg-ocean-blue/15 text-deep-navy font-semibold text-xs;
+  }
+  .badge-red {
+    @apply px-2.5 py-0.5 rounded-full bg-crimson-red/15 text-crimson-red font-semibold text-xs;
+  }
+  .badge-green {
+    @apply px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-xs;
+  }
+  .badge-amber {
+    @apply px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-semibold text-xs;
+  }
+  /* Section accent bar */
+  .section-bar-red    { @apply w-2.5 h-6 bg-crimson-red rounded-full shrink-0; }
+  .section-bar-navy   { @apply w-2.5 h-6 bg-deep-navy rounded-full shrink-0; }
+  .section-bar-ocean  { @apply w-2.5 h-6 bg-ocean-blue rounded-full shrink-0; }
+}

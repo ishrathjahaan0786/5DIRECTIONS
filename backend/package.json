@@ -1,0 +1,28 @@
+{
+  "name": "5directions-backend",
+  "version": "1.0.0",
+  "description": "REST API Backend for 5Directions Supply Chain Resilience Platform",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "supply-chain",
+    "procurement",
+    "resilience",
+    "express",
+    "api"
+  ],
+  "author": "5Directions Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0"
+  }
+}
