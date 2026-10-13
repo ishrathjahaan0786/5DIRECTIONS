@@ -5,7 +5,8 @@
  * - Real persistent authentication & role-based endpoints
  */
 
-const API_BASE = '/api'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || ''
+const API_BASE = BACKEND_URL ? `${BACKEND_URL.replace(/\/$/, '')}/api` : '/api'
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`
