@@ -76,7 +76,8 @@ export const api = {
       const q = new URLSearchParams(params).toString()
       return api.get(`/materials${q ? `?${q}` : ''}`)
     },
-    getById: (id) => api.get(`/materials/${id}`)
+    getById: (id) => api.get(`/materials/${id}`),
+    create: (data) => api.post('/materials', data)
   },
 
   suppliers: {
